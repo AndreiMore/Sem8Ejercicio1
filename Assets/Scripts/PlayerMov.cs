@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using UnityEditor.Build.Player;
 using UnityEngine;
 
 public class PlayerMov : MonoBehaviour
@@ -7,6 +8,7 @@ public class PlayerMov : MonoBehaviour
     Rigidbody2D rgb;
 
     [SerializeField] float speed;
+    [SerializeField] public Vector2 playerInput;
 
     private void Awake()
     {
@@ -19,9 +21,9 @@ public class PlayerMov : MonoBehaviour
     }
     void movement()
     {
-        float hor = Input.GetAxisRaw("Horizontal");
-        float ver = Input.GetAxisRaw("Vertical");
+        playerInput.x = Input.GetAxisRaw("Horizontal");
+        playerInput.y = Input.GetAxisRaw("Vertical");
 
-        rgb.velocity = new Vector2(hor, ver) * speed;
+        rgb.velocity = playerInput * speed;
     }
 }
