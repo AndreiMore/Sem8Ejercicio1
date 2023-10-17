@@ -5,6 +5,7 @@ using UnityEngine;
 public class EnemyLife : MonoBehaviour
 {
     [SerializeField] int life;
+    [SerializeField] int toPlayerDamage;
 
     public void changeLife(int value)
     {
@@ -14,6 +15,11 @@ public class EnemyLife : MonoBehaviour
         {
             Destroy(gameObject);
         }
+    }
+
+    public int getDamgeToPlayer
+    {
+        get { return toPlayerDamage; }
     }
 
     private void OnTriggerEnter2D(Collider2D collision)

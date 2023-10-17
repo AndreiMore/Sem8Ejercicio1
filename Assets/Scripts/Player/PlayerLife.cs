@@ -16,4 +16,12 @@ public class PlayerLife : MonoBehaviour
             Destroy(gameObject);
         }
     }
+
+    private void OnCollisionEnter2D(Collision2D collision)
+    {
+        if (collision.collider.gameObject.CompareTag("Enemy"))
+        {
+            changeLife(-collision.gameObject.GetComponent<EnemyLife>().getDamgeToPlayer);
+        }
+    }
 }
