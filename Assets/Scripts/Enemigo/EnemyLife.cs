@@ -15,4 +15,13 @@ public class EnemyLife : MonoBehaviour
             Destroy(gameObject);
         }
     }
+
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        if (collision.gameObject.CompareTag("BulletPLayer"))
+        {
+            changeLife(-collision.GetComponent<BulletMov>().getDamage);
+            Destroy(collision.gameObject);
+        }
+    }
 }
