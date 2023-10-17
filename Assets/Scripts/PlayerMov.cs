@@ -29,6 +29,8 @@ public class PlayerMov : MonoBehaviour
 
         rgb.velocity = playerInput * speed;
 
+
+        //Guardar la ultima direccion para el disparo
         if(playerInput.x != 0 || playerInput.y != 0)
         {
             dir = playerInput;

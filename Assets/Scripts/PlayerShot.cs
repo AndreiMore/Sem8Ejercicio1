@@ -4,51 +4,37 @@ using UnityEngine;
 
 public class PlayerShot : MonoBehaviour
 {
-    PlayerMov mov;
-
     [Header("Prefabs")]
     [SerializeField] GameObject bullet1;
     [SerializeField] GameObject bullet2;
 
-
     bool mainBullet = true;
 
-    private void Awake()
-    {
-        mov = GetComponent<PlayerMov>();
-    }
     private void Update()
     {
-
+        //Cambiar de bala
         if(Input.GetKeyDown(KeyCode.Q))
         {
             mainBullet = !mainBullet;
         }
 
-
-        //shootdir();
-        shoot();
+        shoot(); //void de disparo
     }
 
     void shoot()
     {
         if(Input.GetKeyDown(KeyCode.Space))
         {
-            if (mainBullet)
+            if (mainBullet) //instanciar bala 1
             {
                 GameObject obj = Instantiate(bullet1);
                 obj.transform.position = transform.position;
             }
-            else
+            else //instanciar bala 2
             {
                 GameObject obj = Instantiate(bullet2);
                 obj.transform.position = transform.position;
             }
         }
     }
-
-    //void shootdir()
-    //{
-    //    dir = mov.playerInput;
-    //}
 }

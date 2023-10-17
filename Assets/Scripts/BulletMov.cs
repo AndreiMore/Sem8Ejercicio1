@@ -40,6 +40,6 @@ public class BulletMov : MonoBehaviour
 
     private void OnBecameInvisible()
     {
-        Destroy(gameObject);
+        Destroy(gameObject); //La bala se destruye
     }
 }
