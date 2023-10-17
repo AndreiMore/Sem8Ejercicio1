@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEditor.Build.Player;
@@ -9,6 +10,8 @@ public class PlayerMov : MonoBehaviour
 
     [SerializeField] float speed;
     [SerializeField] public Vector2 playerInput;
+
+    [NonSerialized] public Vector2 dir;
 
     private void Awake()
     {
@@ -25,5 +28,10 @@ public class PlayerMov : MonoBehaviour
         playerInput.y = Input.GetAxisRaw("Vertical");
 
         rgb.velocity = playerInput * speed;
+
+        if(playerInput.x != 0 || playerInput.y != 0)
+        {
+            dir = playerInput;
+        }
     }
 }

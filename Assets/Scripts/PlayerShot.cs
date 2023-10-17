@@ -10,7 +10,6 @@ public class PlayerShot : MonoBehaviour
     [SerializeField] GameObject bullet1;
     [SerializeField] GameObject bullet2;
 
-    [SerializeField] Vector2 dir;
 
     bool mainBullet = true;
 
@@ -27,7 +26,7 @@ public class PlayerShot : MonoBehaviour
         }
 
 
-        shootdir();
+        //shootdir();
         shoot();
     }
 
@@ -39,23 +38,17 @@ public class PlayerShot : MonoBehaviour
             {
                 GameObject obj = Instantiate(bullet1);
                 obj.transform.position = transform.position;
-
-                Rigidbody2D rb = obj.GetComponent<Rigidbody2D>();
-                rb.velocity = dir;
             }
             else
             {
                 GameObject obj = Instantiate(bullet2);
                 obj.transform.position = transform.position;
-
-                Rigidbody2D rb = obj.GetComponent<Rigidbody2D>();
-                rb.velocity = dir;
             }
         }
     }
 
-    void shootdir()
-    {
-        dir = mov.playerInput;
-    }
+    //void shootdir()
+    //{
+    //    dir = mov.playerInput;
+    //}
 }
