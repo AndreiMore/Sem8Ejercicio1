@@ -5,12 +5,17 @@ using UnityEngine;
 public class Enemy2Shoot : MonoBehaviour
 {
     [SerializeField] GameObject EnemyBullet;
-    public Vector2 shootDir;
+
+    Vector2 shootDir;
 
     [SerializeField] float shootSpeed;
     [SerializeField] float timeBtwnShoot;
     float timer;
 
+    private void Start()
+    {
+        shootDir = new Vector2 (-1, 0);
+    }
 
     private void Update()
     {
