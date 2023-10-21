@@ -1,3 +1,4 @@
+using NUnit.Framework;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -5,7 +6,12 @@ using UnityEngine.UIElements.Experimental;
 
 public class PlayerLife : MonoBehaviour
 {
-    [SerializeField] int life;
+    public int life;
+
+    private void Update()
+    {
+        if(life < 0) life = 0;
+    }
 
     public void changeLife(int value)
     {
