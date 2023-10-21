@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class enemy1Mov : MonoBehaviour
+public class Enemy2Mov : MonoBehaviour
 {
     Rigidbody2D rgb;
 
@@ -11,10 +11,11 @@ public class enemy1Mov : MonoBehaviour
     [SerializeField] float speed;
     [SerializeField] float timeDelay;
     float timer;
+
     private void Awake()
     {
         rgb = GetComponent<Rigidbody2D>();
-        dir.x = 1;
+        dir.y = 1;
     }
 
     private void Update()
@@ -26,13 +27,13 @@ public class enemy1Mov : MonoBehaviour
 
     void changeDir()
     {
-        if(timer < timeDelay)
+        if (timer < timeDelay)
         {
             timer += Time.deltaTime;
         }
         else
         {
-            dir.x *= -1;
+            dir.y *= -1;
             timer = 0;
         }
     }
