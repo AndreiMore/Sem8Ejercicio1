@@ -11,4 +11,9 @@ public class EnemyBullet : MonoBehaviour
     {
         get { return damage; }
     }
+
+    private void OnBecameInvisible()
+    {
+        Destroy(gameObject);
+    }
 }
